@@ -1,0 +1,12 @@
+{
+  "Name": "ill.fi",
+  "RequestType": "POST",
+  "RequestURL": "https://ill.fi/api/upload",
+  "FileFormName": "file",
+  "Arguments": {
+    "key": "your key here"
+  },
+  "ResponseType": "Text",
+  "URL": "https://ill.fi/$json:filename$",
+  "DeletionURL": "http://ill.fi/api/upload/delete?deletion_key=$json:deletion_key$&file=$json:filename$"
+}
