@@ -1,0 +1,49 @@
+
+body {
+  font-family: 'Rubik', sans-serif;
+}
+
+h4 {
+  font-weight: lighter;
+}
+
+.low-btn  {
+  position: relative;;
+  margin-right: 20px;
+}
+
+.stats p {
+  bottom: 2vh;
+}
+
+.docs {
+  margin-left: 22vw;
+  margin-right: 22vw;
+}
+
+.faq {
+  margin-left: 25vw;
+  margin-right: 25vw;
+}
+
+.faq p {
+  font-size: 2.5vmin;
+}
+
+.bbtn {
+  margin-left: 90vw;
+}
+
+.alerts {
+  list-style: none;
+}
+
+.back {
+  position: fixed;
+  left: 2vw;
+  bottom: 2vw;
+}
+
+.alerts li {
+    vertical-align: top;
+}

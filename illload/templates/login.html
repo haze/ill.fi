@@ -1,0 +1,37 @@
+<html>
+  <head>
+    <title>ill.fi</title>
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha256-/SIrNqv8h6QGKDuNoLGA4iret+kyesCkHGzVUUV0shc=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/bootstrap.css') }}">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css?family=Rubik" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/main.css') }}">
+    <script src="{{ url_for('static', filename = 'script/forms.js') }}"></script>
+  </head>
+  <body onload="load_alerts()">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4"></div>
+        <h1 class="col-md-4" style="font-weight: boldest;">ill.fi</h1>
+        <div class="col-md-4"></div>
+      </div>
+      <div class="row">
+        <div class="col-md-4"></div>
+        <form id="loginForm" action='login' method='POST'>
+          <div class="card col-md-4">
+          <ul class="alerts" id='alerts'></ul>
+          <div class="card-block">
+            <input  id='emailField' onkeydown="if (event.keyCode == 13) { this.form.submit(); return false; }" name="email" type="text" placeholder="email" class="form-control"></input>
+            <br/>
+            <input id='passwordField' onkeydown="if (event.keyCode == 13) { this.form.submit(); return false; }" name="password" type="password" placeholder="password" class="form-control"></input>
+            <br/>
+            <div class="btn btn-primary" onclick="validate_login_forms()">login</div>
+          </div>
+        </div>
+      </form>
+        <div class="col-md-4"></div>
+      </div>
+    </div>
+    <a href="/" class="back btn btn-primary">back</a>
+  </body>
+</html>

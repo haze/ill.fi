@@ -1,0 +1,53 @@
+<html>
+  <head>
+    <title>ill.fi</title>
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha256-/SIrNqv8h6QGKDuNoLGA4iret+kyesCkHGzVUUV0shc=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/bootstrap.css') }}">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css?family=Rubik" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/main.css') }}">
+  </head>
+  <body>
+    <div align="center">
+      <h1 style="margin-top: 5vh;">ill.fi</h1>
+    </div>
+  <div class="docs">
+    <h4>all api endpoints return a json with an error (that is either true or false) and a message</h4>
+    <h3>/api/upload</h3>
+    <p>upload takes two arguments</p>
+    <ul style="list-style: none;">
+      <li><b>key</b> - your upload key (can be found on your profile page)</li>
+      <li><b>file</b> - your file</li>
+    </ul>
+    <p>upload returns the following parameters</p>
+    <ul style="list-style: none;">
+      <li><b>error</b> - if there was an error with your upload</li>
+      <li><b>deletion_key</b> - the deletion key for this file</li>
+      <li><b>filename</b> - the filename. append this to <b>https://ill.fi/</b></li>
+    </ul>
+
+    <h3>/api/upload/delete</h3>
+    <p>delete takes two arguments</p>
+    <ul style="list-style: none;">
+      <li><b>deletion_key</b> - the deletion key that was provided when the file was uploaded</li>
+      <li><b>file</b> - the file you want to delete</li>
+    </ul>
+    <p>delete returns the following parameters</p>
+    <ul style="list-style: none;">
+      <li><b>error</b> - if there was an error with your deletion</li>
+      <li><b>filename</b> - the filename of the deleted file</li>
+    </ul>
+
+    <h3>/api/user/exists</h3>
+    <p>exists takes one argument</p>
+    <ul style="list-style: none;">
+      <li><b>email</b> - the email</li>
+    </ul>
+    <p>email returns the following parameters</p>
+    <ul style="list-style: none;">
+      <li><b>error</b> - if there was an error with your request</li>
+      <li><b>exists</b> - whether or not the user exists</li>
+    </ul>
+    <a href="/" class="back btn btn-primary">back</a>
+  </body>
+</html>

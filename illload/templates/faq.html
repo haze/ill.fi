@@ -1,0 +1,61 @@
+<html>
+  <head>
+    <title>ill.fi</title>
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha256-/SIrNqv8h6QGKDuNoLGA4iret+kyesCkHGzVUUV0shc=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/bootstrap.css') }}">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css?family=Rubik" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/main.css') }}">
+  </head>
+  <body>
+    <div align="center">
+      <h1 style="margin-top: 5vh;">ill.fi</h1>
+    </div>
+  <div class="faq">
+    <blockquote class="backquote">
+      what is this website?
+    </blockquote>
+    <p>simple answer really. ill.fi is a private file hosting website.</p>
+    <blockquote class="backquote">
+      why did you make this website?
+    </blockquote>
+    <p>i made this website because i didn't like sr.ht, and i needed a side project. i also needed to touch web development again, and overcome my fear of web servers (which turn out to be easier than you think)</p>
+    <blockquote class="backquote">
+      who made this website?
+    </blockquote>
+    <p><b>haze</b> did. you can find his website <b><a href="http://haze.pw">here</a></b></p>
+    <blockquote class="backquote">
+      as a user, what am i granted? is there anything i should know?
+    </blockquote>
+    <p>as a user, the only information that is stored about you is your email address, your username and your password, hashed with argon2i and a random salt. files uploaded by you only have a deletion key, therefore making the key the owner and not your account. images are also optimized to save space, and exif data is stripped from any images.</p>
+    <blockquote class="backquote">
+      are there any api docs?
+    </blockquote>
+    <p>documentation can be found <b><a href="docs">here</a></b>. feel free to create your own tools for ill.fi and email me</p>
+    <blockquote class="backquote">
+      can i host a copy of this service myself?
+    </blockquote>
+    <p>yes! you can find the source (and possibly instructions) <b><a href="http://github.com/hvze/ill.fi">here</a></b></p>
+    <blockquote class="backquote">
+      what file types are allowed?
+    </blockquote>
+    <p>all file types but the following are allowed (for obvious reasons)</p>
+    <ul>
+      <li>js</li>
+      <li>php</li>
+      <li>php4</li>
+      <li>php3</li>
+      <li>phtml</li>
+      <li>rhtml</li>
+      <li>html</li>
+      <li>xhtml</li>
+      <li>jhtml</li>
+      <li>css</li>
+      <li>swf</li>
+      <li>exe</li>
+    </ul>
+  </div>
+    <a href="/" class="back btn btn-primary">back</a>
+
+  </body>
+</html>

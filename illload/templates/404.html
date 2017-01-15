@@ -1,0 +1,18 @@
+<html>
+  <head>
+    <title>ill.fi</title>
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha256-/SIrNqv8h6QGKDuNoLGA4iret+kyesCkHGzVUUV0shc=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/bootstrap.css') }}">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css?family=Rubik" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/main.css') }}">
+  </head>
+  <body>
+    <div align="center">
+      <h1 style="margin-top: 3vh;">ill.fi</h1>
+      <img style="margin-bottom: 2vh;" src="{{ url_for('static', filename='res/kitty-404.jpg')}}"/>
+      <p style="font-size: 3vmin;"> this page was not found. if you believe this is an error, email <b>sys@ill.fi</b>
+      <a href="/" class="back btn btn-primary">home</a>
+      </div>
+  </body>
+</html>

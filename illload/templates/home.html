@@ -1,0 +1,31 @@
+<html>
+  <head>
+    <title>ill.fi</title>
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha256-/SIrNqv8h6QGKDuNoLGA4iret+kyesCkHGzVUUV0shc=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/bootstrap.css') }}">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css?family=Rubik" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/main.css') }}">
+  </head>
+  <body>
+    <div align="center">
+      <h1 style="margin-top: 40vh;">ill.fi</h1>
+      <h2>
+        {% if current_user.is_authenticated %}
+          welcome <a href="profile">{{ current_user.username }}</a>
+        {% else %}
+          <a href="login" style="margin-right: 12vw;">login</a>
+          <a href="join">join</a>
+        {% endif %}
+      </h2>
+    </div>
+    <a href="docs" class="back btn btn-primary">docs</a>
+    <a style="margin-left: 12vw;" href="faq" class="back btn btn-primary">faq</a>
+    {% if current_user.is_authenticated %}
+    <a style="margin-left: 22vw;" href="logout" class="back btn btn-primary">logout</a>
+    {% endif %}
+    <div class="stats" align="center">
+        <p> files: <b>{{ files }}</b> [~<i>{{ fsize }}</i>] | users: <b>{{ users }}</b> </p>
+      </div>
+  </body>
+</html>
