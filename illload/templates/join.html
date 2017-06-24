@@ -1,42 +1,56 @@
 <html>
-  <head>
-    <title>ill.fi</title>
-    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha256-/SIrNqv8h6QGKDuNoLGA4iret+kyesCkHGzVUUV0shc=" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles/bootstrap.css') }}">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-    <link href="https://fonts.googleapis.com/css?family=Rubik" rel="stylesheet">
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles/main.css') }}">
-    <script src="{{ url_for('static', filename = 'script/forms.js') }}"></script>
-  </head>
-  <body onload="load_alerts()">
-    <div class="container">
+
+<head>
+  <title>ill.fi</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles/main.css') }}">
+  <style>
+    body {
+      color: #e2e2e2;
+      font-family: sans-serif;
+    }
+
+    h3 {
+      color: #FCFCFC;
+    }
+
+    b {
+      color: #FF3333;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="row">
+      <p style="margin-left: 50px; margin-top: 7vh; color: #fcfcfc;">ill.fi</p>
+    </br>
+    {% with messages = get_flashed_messages() %} 
+    {% if messages %}
+      <div style="margin-left: 50px;"class="notif">{{ messages[0] }}</div>
+      <br/>
+      {% endif %}
+      {% endwith %}
       <div class="row">
-        <div class="col-md-4"></div>
-        <h1 class="col-md-4" style="font-weight: boldest">ill.fi</h1>
-        </br>
-        <div class="col-md-4"></div>
-      </div>
-      <div class="row">
-        <div class="col-md-4"></div>
-        <form id="joinForm" action='join' method='POST'>
-        <div class="card col-md-4">
-          <ul class="alerts" id='alerts'></ul>
-          <div class="card-block">
-            <input onkeydown="if (event.keyCode == 13) { this.form.submit(); return false; }" id='inviteField' name="invite" type="text" placeholder="invite key" class="form-control"></input>
+        <form style="margin-left: 50px;" id="joinForm" action='join' method='POST'>
+          <div>
+            <input class="ill-input" onkeydown="if (event.keyCode == 13) { this.form.submit(); return false; }" id='inviteField' name="invite"
+              type="text" placeholder="Invite Key"></input>
             <br/>
-            <input onkeydown="if (event.keyCode == 13) { this.form.submit(); return false; }"  id='emailField' name="email" type="text" placeholder="email" class="form-control"></input>
+            <input class="ill-input" onkeydown="if (event.keyCode == 13) { this.form.submit(); return false; }" id='emailField' name="email"
+              type="text" placeholder="Email"></input>
             <br/>
-            <input onkeydown="if (event.keyCode == 13) { this.form.submit(); return false; }" id='usernameField' name="username" type="text" placeholder="username" class="form-control"></input>
+            <input class="ill-input" onkeydown="if (event.keyCode == 13) { this.form.submit(); return false; }" id='usernameField' name="username"
+              type="text" placeholder="Username"></input>
             <br/>
-            <input onkeydown="if (event.keyCode == 13) { this.form.submit(); return false; }" id='passwordField' name="password" type="password" placeholder="password" class="form-control"></input>
+            <input class="ill-input" onkeydown="if (event.keyCode == 13) { this.form.submit(); return false; }" id='passwordField' name="password"
+              type="password" placeholder="Password"></input>
             <br/>
-            <div type='submit' value='join' name='submit' class="btn btn-primary" onclick="return validate_join_forms()">join</div>
+            <a style="cursor:pointer;margin-left:3px;" type='submit' onclick='console.log("yagmi"); document.getElementById("joinForm").submit();' value='join' name='submit'>Join</a>
           </div>
-        </div>
-      </form>
+        </form>
         <div class="col-md-4"></div>
       </div>
-      <a href="/" class="back btn btn-primary">back</a>
+      <a href="/" style="position: absolute; bottom: 2vh; left: 2vh;">back</a>
     </div>
   </body>
 </html>

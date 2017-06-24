@@ -19,7 +19,7 @@ import json
 import os
 import math
 app = flask.Flask(__name__)
-app.secret_key = 'oQnpspLVSA2DRFw'
+app.secret_key = 'as;ldkfjasl;dkfjas;dlfkj'
 app.debug = True
 ph = PasswordHasher()
 db = SQLAlchemy(app)

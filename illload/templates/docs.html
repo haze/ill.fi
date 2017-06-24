@@ -6,6 +6,19 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css?family=Rubik" rel="stylesheet">
     <link rel="stylesheet" href="{{ url_for('static', filename='styles/main.css') }}">
+    <style>
+      body {
+        color: #e2e2e2;
+        font-family: sans-serif;
+      }
+
+      h3 {
+        color: #FCFCFC;
+      }
+      b {
+        color: #FF3333;
+      }
+      </style>
   </head>
   <body>
     <div align="center">
@@ -17,7 +30,7 @@
     <p>upload takes two arguments</p>
     <ul style="list-style: none;">
       <li><b>key</b> - your upload key (can be found on your profile page)</li>
-      <li><b>file</b> - your file</li>
+      <li><b>files</b> - a list of all the uploaded files, with the original file's filename being the key</li>
     </ul>
     <p>upload returns the following parameters</p>
     <ul style="list-style: none;">
@@ -36,6 +49,18 @@
     <ul style="list-style: none;">
       <li><b>error</b> - if there was an error with your deletion</li>
       <li><b>filename</b> - the filename of the deleted file</li>
+    </ul>
+
+    <h3>/api/upload/delete_all</h3>
+    <p>delete takes two arguments</p>
+    <ul style="list-style: none;">
+      <li><b>key</b> - the upload key that is linked to your account</li>
+      <li><b>email</b> - the email you use to login</li>
+    </ul>
+    <p>delete_all returns the following parameters</p>
+    <ul style="list-style: none;">
+      <li><b>error</b> - if there was an error with your deletion</li>
+      <li><b>message</b> - either an error or success message</li>
     </ul>
 
     <h3>/api/user/exists</h3>

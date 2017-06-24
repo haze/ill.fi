@@ -1,47 +1,62 @@
 <html>
-  <head>
-    <title>ill.fi</title>
-    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha256-/SIrNqv8h6QGKDuNoLGA4iret+kyesCkHGzVUUV0shc=" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles/bootstrap.css') }}">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-    <link href="https://fonts.googleapis.com/css?family=Rubik" rel="stylesheet">
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles/main.css') }}">
-  </head>
-  <body>
-    <div align="center">
-      <h1 style="margin-top: 40vh;">ill.fi</h1>
-    </div>
-    <div align="center">
-      <a href="logout" class="low-btn row-md-4 btn btn-primary">logout</a>
-      <a href="/myuploads" class="low-btn row-md-4 btn btn-primary">archive</a>
-      <div data-toggle="modal" data-target="#keyModal" class="low-btn row-md-4 btn btn-primary" >keys</div>
-      <a href="/" class="low-btn row-md-4 btn btn-primary">home</a>
-      <div id="keyModal" class="modal fade" role="dialog">
-      <div class="modal-dialog">
 
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">uploading details</h4>
-      </div>
-      <div class="modal-body">
-        your upload key is as follows
-        <blockquote class="blockquote">
-          <b>{{ current_user.upload_key }}</b>
-        </blockquote>
-        to use this in your terminal, copy and paste the following command.
-        <pre style="margin-top: 20px;"> curl -F key=<b>{{ current_user.upload_key }}</b> -F file=@<b>(replace filename)</b> http://ill.fi/api/upload</pre>
-      </div>
+<head>
+  <title>ill.fi</title>
+  <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" crossorigin="anonymous">
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles/main.css') }}">
+  <style>
+    body {
+      color: #e2e2e2;
+      font-family: sans-serif;
+    }
 
-      <div class="modal-footer">
-        <button type="button" class="btn btn-sm btn-primary" data-dismiss="modal">Close</button>
-      </div>
-    </div>
+    h3 {
+      color: #FCFCFC;
+    }
 
-    </div>
+    b {
+      color: #FF3333;
+    }
+  </style><script src="{{ url_for('static', filename='script/forms.js')}}"></script>
+    
+</head>
+
+<body>
+  <p style="margin-left: 4vw; margin-top: 7vh; color: #fcfcfc;">/ill.fi/<span style="color: #FF3333">{{ current_user.username }}</span>/</p>
+
+  <div style="margin-left: 4vw;">
+    <a href="/" class="low-btn row-md-4 btn btn-primary">Home</a>
+    <a href="/api/upload" class="low-btn row-md-4 btn btn-primary">Upload</a>
+    <a href="logout" class="low-btn row-md-4 btn btn-primary">Log Out</a>
   </div>
+  <br/>
+  {% if (files is defined) and files %}
+  <table align="left" style="margin-left: 4vw; margin-right: 4vw;"class="pure-table pure-table-horizontal">
+    <caption style="color: #FCFCFC">Uploads</caption>
+    <thead>
+       <tr>
+          <th>Filename</th>
+          <th>Original Filename</th>
+          <th>Deletion Key</th>
+          <th>Delete</th>
+       </tr>
+    </thead>
+    <tbody>
+      {% for file in files %}
+      <tr>
+        <td>{{file.id}}</td>
+        <td>{{file.original_name}}</td>
+        <td>{{file.deletion_key}}</td>
+        <td><a style="cursor: pointer;" onclick='delete_file("{{ file.id }}", "{{ file.deletion_key }}")'>delete</div></td>
+       </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% else %}
+    <p style="margin-left: 4vw; margin-top: 0px;">No files uploaded.</p>
+  {% endif %}
 
-    </div>
-  </body>
+  </div>
+</body>
+
 </html>

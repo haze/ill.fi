@@ -1,10 +1,47 @@
 
-body {
-  font-family: 'Rubik', sans-serif;
-}
-
 h4 {
   font-weight: lighter;
+}
+
+p {
+  font-size: 25px;
+  margin-bottom: 1vh;
+ } 
+
+.ill-input:focus {
+  outline: none;
+}
+.ill-input {
+  color: #FCFCFC;
+  background: none;
+  border-bottom: 1px solid #FF3333;
+  border-top: none;
+  border-right: none;
+  border-left: none;
+}
+
+a {
+  padding-top: 0.4vh;
+  margin-top: 0.4vh;
+  font-size: 17px;
+  text-decoration: underline;
+  -webkit-text-decoration-color: #FF3333;
+  text-decoration-color: #FF3333;
+  color: #FCFCFC;
+}
+
+.login-form {
+  margin-bottom: 0px;
+  padding-bottom: 0px;
+}
+.stat {
+  font-size: 17px;
+  margin-bottom: 0px;
+  margin-top: 0px;
+  padding-bottom: 2px;
+}
+.joinlinks {
+  margin-left: 4vw;
 }
 
 .low-btn  {
@@ -12,8 +49,12 @@ h4 {
   margin-right: 20px;
 }
 
-.stats p {
-  bottom: 2vh;
+.stats {
+  position: absolute;
+  padding-left: 20px;
+  padding-bottom: 18px;
+  bottom: 2px;
+  color: #FCFCFC;
 }
 
 .docs {
@@ -34,6 +75,13 @@ h4 {
   margin-left: 90vw;
 }
 
+.descriptor {
+  padding-left: 1vw;
+  padding-right: 1vw;
+  text-decoration: underline;
+  -webkit-text-decoration-color: #FF3333;
+  text-decoration-color: #FF3333;
+}
 .alerts {
   list-style: none;
 }
@@ -46,4 +94,19 @@ h4 {
 
 .alerts li {
     vertical-align: top;
+}
+
+.notif {
+  margin-left: 4vw;
+  padding: 2px;
+  padding-left: 7px;
+  padding-right: 7px;
+  display: inline-block;
+  color: #FCFCFC;
+  background-color: #242628;
+  border-left: 2px solid #FF3333; 
+}
+
+body {
+  background-color: #0c0f11;
 }

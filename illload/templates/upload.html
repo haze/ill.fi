@@ -1,1 +1,30 @@
-work in progress.
+<html>
+  <head>
+    <title>ill.fi</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/main.css') }}">
+    <style>
+      body {
+        color: #e2e2e2;
+        font-family: sans-serif;
+      }
+  
+      h3 {
+        color: #FCFCFC;
+      }
+  
+      b {
+        color: #FF3333;
+      }
+    </style></head>
+  <body>
+    <p style="margin-left: 4vw; margin-top: 7vh; color: #fcfcfc;">/ill.fi/<span style="color: #FF3333">{{ current_user.username }}</span>/upload</p>
+    <div style="margin-left: 4vw;"align="left">
+     <form type="file" id="fileForm" action="upload" method="POST" enctype="multipart/form-data">
+        <input type="hidden" name="key" value="{{ current_user.upload_key }}"/>
+        <input style="padding-bottom: 0.5vh;" id="fileBtn" type="file" name="file" class="btn btn-default btn-file" multiple>
+        <input type="submit" style="margin-top: 0px; padding-top: 0px;" value="upload" id="uploadBtn"></input>
+      </form>
+    </div>
+    <a href="/profile" class="back btn btn-primary">back</a>
+  </body>
+</html>
